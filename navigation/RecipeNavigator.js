@@ -65,41 +65,30 @@ const RecipeDrawerNavigation = () => {
 const RecipeNavigator = () => {
     return (
         <NavigationContainer>
-            <Stack.Navigator initialRouteName='Home'>
+            <Stack.Navigator initialRouteName='Home'
+                screenOptions={{
+                    headerStyle: {
+                        backgroundColor: Colors.primaryColor,
+                    },
+                    headerTintColor: Colors.secondaryColor,
+                }
+                }>
                 <Stack.Screen
                     name='Home'
                     component={RecipeDrawerNavigation}
                     options={{
                         title: 'Recipe App',
-                        headerStyle: {
-                            backgroundColor: Colors.primaryColor,
-                        },
-                        headerTintColor: Colors.secondaryColor,
                         headerShown: false
-                    }
-                    }
+                    }}
                 />
-
                 <Stack.Screen
                     name="Categories"
                     component={CategoryRecipeScreen}
-                    options={{
-                        headerStyle: {
-                            backgroundColor: Colors.primaryColor,
-                        },
-                        headerTintColor: Colors.secondaryColor
-                    }
-                    }
-
                 />
                 <Stack.Screen
                     name='Recipe'
                     component={RecipeDetailScreen}
                     options={{
-                        headerStyle: {
-                            backgroundColor: Colors.primaryColor,
-                        },
-                        headerTintColor: Colors.secondaryColor,
                         headerRight: () => {
                             return (
                                 <HeaderButtons HeaderButtonComponent={HeaderAppButton}>
@@ -114,7 +103,10 @@ const RecipeNavigator = () => {
                         }
                     }}
                 />
-                <Stack.Screen name='Filters' component={FiltersScreen}/>
+                <Stack.Screen
+                    name='Filters'
+                    component={FiltersScreen}
+                />
             </Stack.Navigator>
 
         </NavigationContainer>
